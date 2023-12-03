@@ -5,7 +5,7 @@
     "description": "Elf User Information",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "cse341-santas-workshop.onrender.com",
   "basePath": "/",
   "schemes": [
     "http"
