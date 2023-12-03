@@ -5,7 +5,7 @@ const doc = {
         title: 'Santas-Workshop',
         description: 'Elf User Information',
     },
-    host: 'localhost:3000',
+    host: 'https://cse341-santas-workshop.onrender.com',
     schemes: ['http'],
 };
 
