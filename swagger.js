@@ -6,7 +6,7 @@ const doc = {
         description: 'Elf User Information',
     },
     host: 'https://cse341-santas-workshop.onrender.com',
-    schemes: ['http'],
+    schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
