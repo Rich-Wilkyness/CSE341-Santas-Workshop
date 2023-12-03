@@ -5,7 +5,7 @@ const cors = require('cors');
 const session = require('express-session');
 const app = express();
 const passport = require('passport');
-const githubPassportStrategy = require("passport-github2").Strategy;
+const GitHubStrategy = require("passport-github2").Strategy;
 
 const swaggerAutogen = require('swagger-autogen')();
 const swaggerUi = require('swagger-ui-express');
@@ -44,11 +44,9 @@ app
     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH', 'OPTIONS']
 }))
 
-app
-  .use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
-  .use('/', require('./routes/index.js'));
+app.use('/', require("./routes/index"));
 
-passport.use(new GitHubStrategy ({
+/*passport.use(new GitHubStrategy ({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: process.env.CALLBACK_URL
@@ -58,7 +56,7 @@ passport.use(new GitHubStrategy ({
     return done(null, profile);
     //});
   }
-));
+));*/
 
 const db = require('./models');
 db.mongoose

@@ -9,3 +9,5 @@ const path = require('path');
 router.use("/", require("./swagger"));
 
 router.use("/toys", require("./toys"));
+
+module.exports = router;
