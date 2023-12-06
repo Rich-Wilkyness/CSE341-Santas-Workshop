@@ -76,3 +76,33 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
+
+// jest setup --> npm install --save-dev jest --> sytax for test files (og: filename.js, test: filename.test.js) --> require og file as a const, use exect(const(params).toBe(expectedValue)) --> update package.json scripts, "test": "jest"; --> run test: jest filename.test.js --notify --config=config.json
+// if using certain libraries, must install the dependencies for jest
+// put all test files in a folder named __tests__
+// create file named filterByTerm.spec.js
+/*
+function filterByTerm(inputArr, searchTerm) {
+  return inputArr.filter(function(arrayElement) {
+    return arrayElement.url.match(searchTerm);
+  });
+}
+
+describe("Filter function", () => {
+  test("it should filter by a search term (link)", () => {
+    const input = [
+      { id: 1, url: "https://www.url1.dev" },
+      { id: 2, url: "https://www.url2.dev" },
+      { id: 3, url: "https://www.link3.dev" }
+    ];
+
+    const output = [{ id: 3, url: "https://www.link3.dev" }];
+
+    expect(filterByTerm(input, "link")).toEqual(output);
+
+  });
+});
+*/ 
+// npm run test 
+
+// jest for mongodb = https://jestjs.io/docs/mongodb

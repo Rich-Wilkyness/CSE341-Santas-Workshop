@@ -2,7 +2,7 @@ const app = require('express');
 const router = app.Router();
 const db = require("../models/index");
 
-const controller = require("../controllers/toys")(db.toys);
+const controller = require("../controllers")(db.toys);
 //const {isAuthenticated} = require('../middleware/authenticate');
 
 router.get("/", controller.getAll);

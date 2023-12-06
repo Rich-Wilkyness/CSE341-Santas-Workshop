@@ -1,3 +1,4 @@
+// toys model
 module.exports = (mongoose) => {
     const Toy = mongoose.model(
       'Toy',
@@ -8,6 +9,5 @@ module.exports = (mongoose) => {
         }   
       )
     );
-  
     return Toy;
-  };
+};
