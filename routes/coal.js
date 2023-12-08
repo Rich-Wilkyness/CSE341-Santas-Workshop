@@ -8,12 +8,30 @@ const controller = require("../controllers")(db.coal);
 router
     .route('/')
     .get(controller.getAll)
-    .post(controller.create);
+    .post(controller.create/*
+    #swagger.description = "Information for coal."
+    #swagger.parameters["body"] = {
+        "in": "body",
+        "schema": {
+            $coalInv: "Number",
+            $naughtyTotal: "Number",
+        }
+    }
+*/);
 
 router
     .route('/:id')
     .get(controller.getSingle)
-    .put(controller.update)
+    .put(controller.update/*
+    #swagger.description = "Information for coal."
+    #swagger.parameters["body"] = {
+        "in": "body",
+        "schema": {
+            $coalInv: "Number",
+            $naughtyTotal: "Number",
+        }
+    }
+*/)
     .delete(controller.deleteEntry);
 
 module.exports = router;
