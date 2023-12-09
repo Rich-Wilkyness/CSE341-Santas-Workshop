@@ -5,7 +5,7 @@
     "description": "Elf User Information",
     "version": "1.0.0"
   },
-  "host": "cse341-santas-workshop.onrender.com",
+  "host": "https://cse341-santas-workshop.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -144,7 +144,114 @@
         }
       },
       "delete": {
-        "description": "Information for toy.",
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/candy/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Information for children.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "naughty": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "gift": {
+                  "type": "string",
+                  "example": "String"
+                }
+              },
+              "required": [
+                "name",
+                "naughty",
+                "gift"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/candy/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Information for children.",
         "parameters": [
           {
             "name": "id",
@@ -162,16 +269,360 @@
                   "type": "string",
                   "example": "String"
                 },
-                "price": {
+                "naughty": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "gift": {
+                  "type": "string",
+                  "example": "String"
+                }
+              },
+              "required": [
+                "name",
+                "naughty",
+                "gift"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/coal/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "",
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/coal/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Information for coal.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "coalInv": {
+                  "type": "string",
+                  "example": "Number"
+                },
+                "naughtyTotal": {
                   "type": "string",
                   "example": "Number"
                 }
               },
               "required": [
-                "name",
-                "price"
+                "coalInv",
+                "naughtyTotal"
               ]
             }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "description": "Information for user.",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "admin": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "jobTitle": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "performance": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "married": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "age": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              },
+              "required": [
+                "admin",
+                "name",
+                "jobTitle",
+                "password",
+                "performance",
+                "married",
+                "age"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/{id}": {
+      "get": {
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "description": "Information for user.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "admin": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "name": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "jobTitle": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "password": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "performance": {
+                  "type": "string",
+                  "example": "String"
+                },
+                "married": {
+                  "type": "string",
+                  "example": "Boolean"
+                },
+                "age": {
+                  "type": "string",
+                  "example": "Number"
+                }
+              },
+              "required": [
+                "admin",
+                "name",
+                "jobTitle",
+                "password",
+                "performance",
+                "married",
+                "age"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
           }
         ],
         "responses": {
