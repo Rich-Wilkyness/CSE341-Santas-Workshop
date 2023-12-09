@@ -29,16 +29,6 @@ router.put("/:id", controller.update
             }
         }
     */);
-router.delete("/:id", controller.deleteEntry
-/*
-        #swagger.description = "Information for toy."
-        #swagger.parameters["body"] = {
-            "in": "body",
-            "schema": {
-                $name: "String",
-                $price: "Number",
-            }
-        }
-    */);
+router.delete("/:id", controller.deleteEntry);
 
 module.exports = router;
