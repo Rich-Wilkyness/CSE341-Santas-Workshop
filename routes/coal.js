@@ -8,7 +8,7 @@ const controller = require("../controllers")(db.coal);
 router
     .route('/')
     .get(controller.getAll)
-    .post(controller.create);
+    .post(controller.create); // just need one and then update it, might switch to inventory and then can add new items as needed. children total, toys, coal, elves, etc.
 
 router
     .route('/:id')
