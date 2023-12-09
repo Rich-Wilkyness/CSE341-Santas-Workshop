@@ -12,3 +12,5 @@ module.exports = (mongoose) => {
     );
     return Children;
 };
+
+// Age: {type: Int, required: True}? Having an age for each Child
