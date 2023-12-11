@@ -3,17 +3,17 @@ const router = app.Router();
 const db = require("../models/index");
 
 const controller = require("../controllers")(db.coal);
-//const {isAuthenticated} = require('../middleware/authenticate');
+const {isAuthenticated} = require('../middleware/authenticate');
 
 router
     .route('/')
     .get(controller.getAll)
-    .post(controller.create); // just need one and then update it, might switch to inventory and then can add new items as needed. children total, toys, coal, elves, etc.
+    .post(isAuthenticated, controller.create); // just need one and then update it, might switch to inventory and then can add new items as needed. children total, toys, coal, elves, etc.
 
 router
     .route('/:id')
     .get(controller.getSingle)
-    .put(controller.update/*
+    .put(isAuthenticated, controller.update/*
     #swagger.description = "Information for coal."
     #swagger.parameters["body"] = {
         "in": "body",
@@ -23,6 +23,6 @@ router
         }
     }
 */)
-    .delete(controller.deleteEntry);
+    .delete(isAuthenticated, controller.deleteEntry);
 
 module.exports = router;
