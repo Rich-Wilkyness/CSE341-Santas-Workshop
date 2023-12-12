@@ -7,7 +7,7 @@ const path = require('path');
 
 router.use("/", require("./swagger"));
 router.use("/toys", require("./toys"));
-router.use("/candy", require("./children"));
+router.use("/children", require("./children"));
 router.use("/coal", require("./coal"));
 router.use("/user", require("./user"));
 
