@@ -5,8 +5,9 @@ const cors = require('cors');
 const session = require('express-session');
 const app = express();
 const passport = require('passport');
-const githubPassportStrategy = require("passport-github2").Strategy;
 
+
+const githubPassportStrategy = require("passport-github2").Strategy;
 
 const swaggerAutogen = require('swagger-autogen')();
 const swaggerUi = require('swagger-ui-express');
@@ -16,7 +17,7 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(express.json());
 
-  
+
   app.use(bodyParser.json()); 
   app.use(session({
     secret: process.env.PASSPORT_SECRET,
