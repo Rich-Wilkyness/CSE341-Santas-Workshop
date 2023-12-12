@@ -378,7 +378,7 @@
         }
       },
       "post": {
-        "description": "Information for children.",
+        "description": "Information for coal and naughty children.",
         "parameters": [
           {
             "name": "body",
