@@ -73,7 +73,7 @@
                   "example": "String"
                 },
                 "price": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 }
               },
@@ -143,7 +143,7 @@
                   "example": "String"
                 },
                 "price": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 }
               },
@@ -227,7 +227,7 @@
                   "example": "String"
                 },
                 "naughty": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "gift": {
@@ -301,7 +301,7 @@
                   "example": "String"
                 },
                 "naughty": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "gift": {
@@ -386,11 +386,11 @@
               "type": "object",
               "properties": {
                 "coalInv": {
-                  "type": "string",
+                  "type": "number",
                   "example": "Number"
                 },
                 "naughtyTotal": {
-                  "type": "string",
+                  "type": "number",
                   "example": "Number"
                 }
               },
@@ -455,11 +455,11 @@
               "type": "object",
               "properties": {
                 "coalInv": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 },
                 "naughtyTotal": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 }
               },
@@ -539,7 +539,7 @@
               "type": "object",
               "properties": {
                 "admin": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "name": {
@@ -559,11 +559,11 @@
                   "example": "String"
                 },
                 "married": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "age": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 }
               },
@@ -632,7 +632,7 @@
               "type": "object",
               "properties": {
                 "admin": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "name": {
@@ -652,11 +652,11 @@
                   "example": "String"
                 },
                 "married": {
-                  "type": "string",
+                  "type": "boolean",
                   "example": "Boolean"
                 },
                 "age": {
-                  "type": "string",
+                  "type": "integer",
                   "example": "Number"
                 }
               },
