@@ -7,6 +7,12 @@ const app = express();
 const passport = require('passport');
 const GitHubStrategy = require("passport-github2").Strategy;
 
+
+const session = require('express-session');
+const githubPassportStrategy = require("passport-github2").Strategy;
+const cors = require('cors');
+
+
 const swaggerAutogen = require('swagger-autogen')();
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger.json');
@@ -15,28 +21,24 @@ app
   .use(express.urlencoded({ extended: true }))
   .use(express.json());
 
-app
-  .use(session({
-    secret: "secret", //setting up a cookie, this is the name of that session cookie. 
+  
+  app.use(bodyParser.json()); 
+  app.use(session({
+    secret: process.env.PASSPORT_SECRET,
     resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // for HTTPS, set `secure: true`
-}));
-
-app
-  // basic express session initialization
-  .use(passport.initialize())
-  // init passport on every route call - tying it to the session
-  .use(passport.session())
-  // allow passport to use 'express-session'
-  .use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
-    res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Origin, X-Requested-With, Content-Type, Z-Key, Authorization"
-    );
-    next();
-});
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use((req, res, next)=>{
+      res.setHeader("Access-Control-Allow-Origin", "*");
+      res.setHeader("Access-Control-Allow-Headers", 
+      "Origin, X-Requested-With, Content-Type, Accept, Z-Key  ");
+      res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+      next();
+  });
+  app.use(cors({methods:['GET', 'POST', 'DELETE', 'UPDATE', 'PUT', 'PATCH']}));
+  app.use(cors({origin: '*'}));
 
 app
   .use(cors({
@@ -46,16 +48,15 @@ app
 
 app.use('/', require("./routes/index"));
 
-passport.use(new GitHubStrategy ({
+passport.use(new githubPassportStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: process.env.CALLBACK_URL
-}, function(accessToken, refreshToken, profile, done) {
-    // User.findOrCreate({ github: profile.id}, function(err, user) {    this is how we would link to our mongo database
-    // console.log(profile)
-    return done(null, profile);
-    //});
-  }
+
+},
+function(accessToken, refreshToken, profile, done){
+    return done(null, profile)
+}
 ));
 
 passport.serializeUser((user, done) => {
