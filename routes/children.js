@@ -3,12 +3,12 @@ const router = app.Router();
 const db = require("../models/index");
 
 const controller = require("../controllers")(db.children);
-//const {isAuthenticated} = require('../middleware/authenticate');
+const {isAuthenticated} = require('../middleware/authenticate');
 
 router
     .route('/')
     .get(controller.getAll)
-    .post(controller.create/*
+    .post(isAuthenticated, controller.create/*
     #swagger.description = "Information for children."
     #swagger.parameters["body"] = {
         "in": "body",
@@ -23,7 +23,7 @@ router
 router
     .route('/:id')
     .get(controller.getSingle)
-    .put(controller.update/*
+    .put(isAuthenticated, controller.update/*
     #swagger.description = "Information for children."
     #swagger.parameters["body"] = {
         "in": "body",
@@ -34,6 +34,6 @@ router
         }
     }
 */)
-    .delete(controller.deleteEntry);
+    .delete(isAuthenticated, controller.deleteEntry);
 
 module.exports = router;

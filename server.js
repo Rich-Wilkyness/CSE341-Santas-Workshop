@@ -46,7 +46,7 @@ app
 
 app.use('/', require("./routes/index"));
 
-/*passport.use(new GitHubStrategy ({
+passport.use(new GitHubStrategy ({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: process.env.CALLBACK_URL
@@ -56,7 +56,22 @@ app.use('/', require("./routes/index"));
     return done(null, profile);
     //});
   }
-));*/
+));
+
+passport.serializeUser((user, done) => {
+  done(null, user);
+});
+passport.deserializeUser((user, done) => {
+  done(null, user);
+});
+
+app.get('/', (req,res) => {res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.displayName}` : "Logged Out")});
+
+app.get('/github/callback', passport.authenticate('github', {failureRedirect:'/api-docs', session: false}),
+  (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/');
+  });
 
 const db = require('./models');
 db.mongoose
