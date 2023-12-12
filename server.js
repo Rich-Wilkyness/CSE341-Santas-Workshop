@@ -5,11 +5,9 @@ const cors = require('cors');
 const session = require('express-session');
 const app = express();
 const passport = require('passport');
-const GitHubStrategy = require("passport-github2").Strategy;
 
 
 const githubPassportStrategy = require("passport-github2").Strategy;
-const cors = require('cors');
 
 
 const swaggerAutogen = require('swagger-autogen')();
