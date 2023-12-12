@@ -386,11 +386,11 @@
               "type": "object",
               "properties": {
                 "coalInv": {
-                  "type": "integer",
+                  "type": "number",
                   "example": "Number"
                 },
                 "naughtyTotal": {
-                  "type": "integer",
+                  "type": "number",
                   "example": "Number"
                 }
               },
