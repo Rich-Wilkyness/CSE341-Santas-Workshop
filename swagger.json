@@ -237,9 +237,8 @@
               },
               "required": [
                 "name",
-                "naughty",
-                "gift"
-              ]
+                "naughty"
+                ]
             }
           }
         ],
@@ -573,8 +572,6 @@
                 "name",
                 "jobTitle",
                 "password",
-                "performance",
-                "married",
                 "age"
               ]
             }
@@ -668,8 +665,6 @@
                 "name",
                 "jobTitle",
                 "password",
-                "performance",
-                "married",
                 "age"
               ]
             }
